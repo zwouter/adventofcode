@@ -1,0 +1,34 @@
+
+def meetsCriteria(number):
+    array = list(str(number))
+    adjacent = False
+    if len(array) == 6:
+        previous = -1
+        if array[0] == array[1] != array[2] or array[0] != array[1] == array[2] != array[3] or \
+            array[1] != array[2] == array[3] != array[4] or array[2] != array[3] == array[4] != array[5] \
+            or array[3] != array[4] == array[5] != array[3]:
+            adjacent = True
+        for i in range(len(array)):
+            current = int(array[i])
+            if (previous > 0):
+                if current < previous:
+                    return False
+            previous = current
+    return adjacent
+
+# Goal 1135
+# Answer is too low
+# Dus er worden er te veel fout gekeurd hoe dan
+
+count = 0
+start = 197487
+end = 673251
+# start = 111122
+# end = 111123
+for i in range(start, end):
+    if meetsCriteria(i):
+        count += 1
+
+print(count)
+
+

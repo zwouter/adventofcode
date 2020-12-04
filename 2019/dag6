@@ -1,0 +1,31 @@
+f = open("data6", "r")
+content = f.read().split("\n")
+count = 0
+orbits = {}
+planets = set()
+for i in range(len(content)):
+    pair = content[i].split(")")
+    planets.add(pair[1])
+    orbits[pair[1]] = pair[0]
+# for i in planets:
+#     while i in orbits.keys():
+#         i = orbits[i]
+#         count += 1
+
+santas = []
+i = "SAN"
+while i in orbits.keys():
+    i = orbits[i]
+    santas.append(i)
+yous = []
+i = "YOU"
+while i in orbits.keys():
+    i = orbits[i]
+    yous.append(i)
+found = False
+for i in range(len(santas)):
+    for j in range(len(yous)):
+        if santas[i] == yous[j] and not found:
+            found = True
+            print(i + j)
+            break

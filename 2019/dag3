@@ -1,0 +1,54 @@
+f = open("data3", "r")
+content = f.read().split("\n")
+ziekelijst1 = content[0].split(",")
+ziekelijst2 = content[1].split(",")
+
+def krijglijst(ziekelijst):
+    res = []
+    coor = [0, 0]
+    for i in range(len(ziekelijst)):
+        letter = ziekelijst[i][0]
+        getal = int(float(ziekelijst[i].replace('U', '').replace('R', '').replace('L', '').replace('D', '')))
+        if letter == 'U':
+            for i in range(getal):
+                coor = [coor[0], coor[1] + 1]
+                res.append(coor)
+        elif letter == 'D':
+            for i in range(getal):
+                coor = [coor[0], coor[1] - 1]
+                res.append(coor)
+        elif letter == 'L':
+            for i in range(getal):
+                coor = [coor[0] - 1, coor[1]]
+                res.append(coor)
+        elif letter == 'R':
+            for i in range(getal):
+                coor = [coor[0] + 1, coor[1]]
+                res.append(coor)
+    return res
+
+
+gekresult1 = krijglijst(ziekelijst1)
+gekresult2 = krijglijst(ziekelijst2)
+print(len(gekresult1))
+print(len(gekresult2))
+
+kruisingen = []
+for i in range(len(gekresult1)):
+    for j in range(len(gekresult2)):
+        if gekresult2[j] == gekresult1[i]:
+            kruisingen.append(i + j + 2)
+            print(i + j + 2)
+    # if gekresult1[i] in gekresult2:
+    #     kruisingen.append(gekresult1[i])
+
+if len(kruisingen) > 0:
+    # kortste = (abs(kruisingen[0][0]) + abs(kruisingen[0][1]))
+    kortste = kruisingen[0]
+    for i in range(1, len(kruisingen)):
+        if kruisingen[i] < kortste:
+            kortste = kruisingen[i]
+        # lengte = (abs(kruisingen[i][0]) + abs(kruisingen[i][1]))
+        # if lengte < kortste:
+        #     kortste = lengte
+    print(kortste)
