@@ -1,4 +1,6 @@
-f = open("data1", "r")
+fil = "data1"
+
+f = open(fil, "r")
 content = set([int(x) for x in f.read().split("\n")])
 
 # Deel 1

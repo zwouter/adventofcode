@@ -1,3 +1,4 @@
+fil = "data6"
 # Part 1
 # f = open("data6").read().split("\n\n")
 # count = 0
@@ -6,8 +7,9 @@
 #     for i in x.replace("\n",""):
 #         s.add(i)
 #     count += len(s)
-#
 # print(count)
+#oneliner
+print(sum(len(set([i for i in x.replace("\n","")]))for x in open(fil).read().split("\n\n")))
 
 # Part 2
 # f = open("data6").read().split("\n\n")
@@ -26,4 +28,4 @@
 # print(count)
 
 # Oneliner
-print(sum(sum(v==x.count("\n")+1for v in{i:x.count(i)for i in x}.values())for x in open("d").read().split("\n\n")))
+print(sum(sum(v==x.count("\n")+1for v in{i:x.count(i)for i in x}.values())for x in open(fil).read().split("\n\n")))

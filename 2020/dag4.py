@@ -1,5 +1,6 @@
 # Day 4 oneliner
-import re;print(sum(7==(sum(sum(q==(u:=k.split(":"))[0]and bool(re.fullmatch(g,u[1]))for k in c)for q,g in zip("byr iyr eyr hgt hcl ecl pid".split(),"(19[2-9]\d|200[0-2]) 20(1\d|20) 20(2\d|30) (1(([5-8]\d)|(9[0-3]))cm)|(59|6\d|7[0-6])in #[a-f\d]{6} amb|blu|brn|gr[yn]|hzl|oth \d{9}".split())))for c in[re.split("\n| ",c)for c in open("d").read().split("\n\n")]))
+fil = "data4"
+import re;print(sum(7==(sum(sum(q==(u:=k.split(":"))[0]and bool(re.fullmatch(g,u[1]))for k in c)for q,g in zip("byr iyr eyr hgt hcl ecl pid".split(),"(19[2-9]\d|200[0-2]) 20(1\d|20) 20(2\d|30) (1(([5-8]\d)|(9[0-3]))cm)|(59|6\d|7[0-6])in #[a-f\d]{6} amb|blu|brn|gr[yn]|hzl|oth \d{9}".split())))for c in[re.split("\n| ",c)for c in open(fil).read().split("\n\n")]))
 
 
 # Normal version of day 7
