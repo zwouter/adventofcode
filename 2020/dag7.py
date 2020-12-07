@@ -17,7 +17,7 @@ while changed:
             if x in s and k not in s:
                 s.add(k)
                 changed = True
-# print(len(s))
+print(len(s))
 
 # Part 2
 s.clear()
