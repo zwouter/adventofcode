@@ -9,7 +9,7 @@ fil = "data6"
 #     count += len(s)
 # print(count)
 #oneliner
-print(sum(len(set([i for i in x.replace("\n","")]))for x in open(fil).read().split("\n\n")))
+print(sum(len(set(i for i in x.replace("\n","")))for x in open(fil).read().split("\n\n")))
 
 # Part 2
 # f = open("data6").read().split("\n\n")
@@ -29,3 +29,7 @@ print(sum(len(set([i for i in x.replace("\n","")]))for x in open(fil).read().spl
 
 # Oneliner
 print(sum(sum(v==x.count("\n")+1for v in{i:x.count(i)for i in x}.values())for x in open(fil).read().split("\n\n")))
+# print(sum(sum(v>x.count("\n")for v in{i:x.count(i)for i in x}.values())for x in open(fil).read().split("\n\n")))
+# print(sum(sum(x.count(v)>x.count("\n")for v in set(x))for x in open(fil).read().split("\n\n")))
+# import re;print(re.split("(\w+\n)+\n", open(fil).read()))
+# print(open(fil).read().split("\n\n"))
