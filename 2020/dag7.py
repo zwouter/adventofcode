@@ -39,8 +39,8 @@ def getsum(x):
                     res += getsum(x)
         return int(num) * res
 
-count = 0
-for z in s:
-    count += getsum(z)
+print(sum(list(map(getsum, s))))
 
-print(count)
+# Poging tot oneliner
+# print(sum(list(map((a:=lambda x:0if(n:=x.split(" ")[0])=="no"else int(n)*sum(sum(a(x) for x in v if re.split("no |\d+ ", x)[1] in k)+1for k,v in dict.items())), s))))
+
