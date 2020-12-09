@@ -1,5 +1,5 @@
 fil = "data8"
-f = open(fil).read().split("\n")
+f = open(fil).readlines()
 
 def terminates(x):
     acc = 0
@@ -20,6 +20,7 @@ def terminates(x):
             acc += num
             i += 1
     return True, acc
+
 
 print(terminates(f)[1])
 

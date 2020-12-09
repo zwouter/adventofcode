@@ -20,12 +20,6 @@ while changed:
 print(len(s))
 
 # Part 2
-s.clear()
-for k,v in dict.items():
-    if "shiny gold bag" in k:
-        for x in v:
-            s.add(x)
-
 def getsum(x):
     num = x.split(" ")[0]
     bag = re.split("no |\d+ ", x)[1]
@@ -39,7 +33,8 @@ def getsum(x):
                     res += getsum(x)
         return int(num) * res
 
-print(sum(list(map(getsum, s))))
+
+print(getsum("1 shiny gold bag")-1)
 
 # Poging tot oneliner
 # print(sum(list(map((a:=lambda x:0if(n:=x.split(" ")[0])=="no"else int(n)*sum(sum(a(x) for x in v if re.split("no |\d+ ", x)[1] in k)+1for k,v in dict.items())), s))))
