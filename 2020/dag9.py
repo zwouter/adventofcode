@@ -1,7 +1,7 @@
 fil = list(map(int, open("data9").readlines()))
 
 i_start = 0
-i_end = pream = 25
+i_end = preamble = 25
 b = 0
 
 while True:
@@ -20,7 +20,7 @@ while True:
 print(a)
 for x in range(len(fil)):
     i = x + 2
-    while (sum(fil[x:i]) < a):
+    while sum(fil[x:i]) < a:
         i += 1
     if sum(fil[x:i]) == a:
         print(min(fil[x:i]) + max(fil[x:i]))
