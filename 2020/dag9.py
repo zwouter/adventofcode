@@ -1,6 +1,5 @@
-import time
 
-
+# Normale manier
 # Part 1
 fil = list(map(int, open("data9").readlines()))
 for i in range(25,len(fil)):
@@ -19,15 +18,11 @@ for x in range(len(fil)):
         print(min(fil[x:i]) + max(fil[x:i]))
 
 
-# Oneliners
+# ----------------- Oneliners
 fil = "data9"
 # Oneliner 1
 print([[f[i]for i in range(25,len(f))if sum(f[i]-x in f[i-25:i]for x in f[i-25:i])<1][0]for f in[list(map(int,open(fil).readlines()))]][0])
 
-starttime = time.time()
-print([sum([sum([min(f[x:i])+max(f[x:i])for i in range(x+2,len(f))if sum(f[x:i])==[f[i]for i in range(25,len(f))if sum(f[i]-x in f[i-25:i]for x in f[i-25:i])<1][0]])for x in range(len(f))])for f in [list(map(int,open(fil).readlines()))]][0])
-
-print(time.time()-starttime)
-
-
+# Oneliner part 2. Takes 6696.990035057068s.
+# print([sum([sum([min(f[x:i])+max(f[x:i])for i in range(x+2,len(f))if sum(f[x:i])==[f[i]for i in range(25,len(f))if sum(f[i]-x in f[i-25:i]for x in f[i-25:i])<1][0]])for x in range(len(f))])for f in[list(map(int,open(fil).readlines()))]][0])
 
