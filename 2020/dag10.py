@@ -31,6 +31,7 @@ while i < max(f):
 #
 # print(countit(0, [0]+list(f)))
 
+
 # Dynamic programming way
 f = [0] + list(f)
 m = [1 for i in range(len(f))]
@@ -39,6 +40,9 @@ for i in range(len(f)-2, -1, -1):
     s = [j for j in l if f[i] < j < f[i]+4]
     t = [m[f.index(j)] for j in s]
     m[i] = sum(t)
+# print(m[0])
 
-print(m[0])
+
+# Oneliner
+print([[sum(m[f.index(j)]for j in[j for j in f[i:i+4]if f[i]<j<f[i]+4])for i in range(len(f)-2,-1,-1)][-1]for f in[sorted(map(int,open(fil)))]][0])
 
