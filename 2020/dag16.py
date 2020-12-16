@@ -46,14 +46,33 @@ for i in range(len(ranges)):
             if j not in w and int(l[j].split(",")[i]) not in v:
                 good = False
         if good:
-            s[k] = i
+            if k in s:
+                s[k].append(i)
+            else:
+                s[k] = [i]
+
+# Part 2
+result = {}
+h = 1
+while h:
+    h = None
+    for k in s.keys():
+        v = s[k]
+        if len(v) == 1:
+            h = v[0]
+            result[k] = v[0]
             break
-    ranges.pop(k)
-print(s)
+    if h is not None:
+        for k in s.keys():
+            v = s[k]
+            if h in v:
+                v.remove(h)
+
+print(result)
 
 l = f[1].split(",")
 res = 1
-for k, v in s.items():
+for k, v in result.items():
     if "departure" in k:
         res *= int(l[v])
 print(res)
