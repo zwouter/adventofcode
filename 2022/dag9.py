@@ -106,11 +106,9 @@ def update(i):
             alpha = 1
             axs[1].scatter(pos[0], pos[1], c=c)
         axs[0].scatter(pos[0], pos[1], c=c, alpha=alpha)
-    # size = max(ax.get_xlim()[1] // 5, 1 + abs(max(abs(max(all_positions[i], key=lambda a: abs(a[1]))[1]),
-    #                                            abs(max(all_positions[i], key=lambda a: abs(a[0]))[0]))) % 10)
+    # Set range and ticks. Size variable gives the option to automatically scale nicely
     size = 10
     rang = [-(x := 2 * size), x]
-    # Set range and ticks.
     axs[0].set_xlim(rang)
     axs[0].set_ylim(rang)
     axs[0].set_xticks(np.arange(min(rang), max(rang) + 1, 0.2 * size))
