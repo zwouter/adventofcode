@@ -48,18 +48,18 @@ print(part1())
 # -------------------------- part 2
 def get_dir(point1, point2):
     res = [0, 0]
-    x_dir = min(point1[0] - point2[0], 1)
-    y_dir = min(point1[1] - point2[1], 1)
+    x_dir = max(-1, min(point1[0] - point2[0], 1))
+    y_dir = max(-1, min(point1[1] - point2[1], 1))
     if point1[0] - point2[0] > 1:
         res[0] = 1
         res[1] = y_dir
-    elif point1[0] - point2[0] < -1:
+    if point1[0] - point2[0] < -1:
         res[0] = -1
         res[1] = y_dir
-    elif point1[1] - point2[1] > 1:
+    if point1[1] - point2[1] > 1:
         res[1] = 1
         res[0] = x_dir
-    elif point1[1] - point2[1] < -1:
+    if point1[1] - point2[1] < -1:
         res[1] = -1
         res[0] = x_dir
     return res
@@ -122,7 +122,7 @@ def update(i):
 
 
 fig, axs = plt.subplots(1, 2)
-animation = ani.FuncAnimation(fig, update, frames=len(all_positions), interval=100, repeat=False)
+animation = ani.FuncAnimation(fig, update, frames=len(all_positions), interval=1, repeat=False)
 paused = False
 
 
