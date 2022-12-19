@@ -1,3 +1,5 @@
+from tqdm import tqdm
+
 file = open("data12")
 lines = file.read().split("\n")
 file.close()
@@ -79,7 +81,7 @@ def get_roots(lines):
 
 def part_2(lines):
     pairs = {}
-    for root in get_roots(lines):
+    for root in tqdm(get_roots(lines)):
         bfs = BFS(lines, root)
         if not bfs:
             continue
